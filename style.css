@@ -1,0 +1,130 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #00f260, #0575e6, #ff00cc); /* Rainbow Neon Gradient */
+    text-align: center;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+}
+
+/* Title */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Glow Animation for Title */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+    50% { text-shadow: 0 0 20px #ff00cc, 0 0 30px #00f260; }
+    100% { text-shadow: 0 0 10px #0575e6, 0 0 20px #ff00cc; }
+}
+
+/* Game Container */
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tic Tac Toe Grid */
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5vmin;
+}
+
+/* Each Box */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    font-size: 8vmin;
+    font-weight: bold;
+    color: #ff4757;
+    background: #f1f2f6;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background 0.3s, color 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    background: #e0e0e0;
+    color: #2f3542;
+}
+
+/* Buttons */
+#reset-btn, #new-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    background: #ff6b81;
+    color: #fff;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+#reset-btn:hover, #new-btn:hover {
+    background: #ff4757;
+    transform: scale(1.05);
+}
+
+/* Winner Message Overlay */
+.msg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.hide {
+    display: none;
+}
+
+#msg {
+    color: #ffdd59;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .game {
+        height: 90vw;
+        width: 90vw;
+    }
+    .box {
+        font-size: 6vw;
+    }
+}
